@@ -3,6 +3,8 @@ import 'package:paths/data/texts.dart';
 import 'package:paths/styles/images.dart';
 import 'package:paths/styles/app_styles.dart';
 
+/// Widget que contiene todos los elementos de la 
+/// barra fija del footer.
 class WidgetFooter extends StatelessWidget {
   const WidgetFooter({super.key});
 
@@ -17,26 +19,26 @@ class WidgetFooter extends StatelessWidget {
                   crossAxisAlignment: .start,
                   children: [
                     Text(
-                      Texts.navSubTitle,
+                      Texts.footerSubTitle,
                       style: AppStyles.textPilGrey,
                     ),
                     Text(
-                      Texts.navTitle,
+                      Texts.footerTitle,
                       style: AppStyles.textBold,
                     ),
                   ],
                 ),
             ],
-        ),
+        ), // Contenedor de los textos
         Wrap(
           children: [
             IconButton(
               onPressed: () {},
               icon: Images.download,
               style: AppStyles.buttDownload
-            ),
+            ), // botón de descargar
     
-            AppStyles.smallSeparator,
+            AppStyles.smallSeparator, // separador
     
             FilledButton(
               onPressed: () {},
@@ -46,14 +48,14 @@ class WidgetFooter extends StatelessWidget {
                   Images.navigation,
                   AppStyles.smallSeparator,
                   Text(
-                    'Comenzar',
+                    Texts.footerButton,
                     style: AppStyles.textBold,
                   ),
                 ],
               ),
-            )
+            )// botón de comenzar
           ],
-        ),
+        ), // Contenedor de los botones
       ],
     );
   }

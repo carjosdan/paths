@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:paths/styles/images.dart';
 import 'package:paths/styles/app_styles.dart';
 
+/// Barra de botones fija superior, con botón de 
+/// de retornar, compartir y favorito.
 class WidgetTop extends StatefulWidget {
   const WidgetTop({super.key});
 
@@ -10,7 +12,7 @@ class WidgetTop extends StatefulWidget {
 }
 
 class _WidgetTopState extends State<WidgetTop> {
-  bool _isFavorite = false;
+  bool _isFavorite = false; // inicialización del estado de favorito
 
   @override
   Widget build(BuildContext context) {
@@ -21,14 +23,17 @@ class _WidgetTopState extends State<WidgetTop> {
           onPressed: (){}, 
           icon: Images.arrBack,
           style: AppStyles.buttCircle,
-        ), 
+        ), // botón de retornar
+
         Row(
           children: [
+            
             IconButton(
               onPressed: (){}, 
               icon: Images.share,
               style: AppStyles.buttCircle,
-            ),         
+            ), // botón de compartir
+
             IconButton(
               onPressed: (){
                 setState(() {
@@ -37,7 +42,7 @@ class _WidgetTopState extends State<WidgetTop> {
               }, 
               icon: _isFavorite ? Images.favorite : Images.favoriteBorder,
               style: AppStyles.buttCircle,
-            ), 
+            ), // botón de favorito
           ],
         )
       ],

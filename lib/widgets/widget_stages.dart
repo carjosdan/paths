@@ -3,12 +3,16 @@ import 'package:paths/data/texts.dart';
 import 'package:paths/models/waypoint.dart';
 import 'package:paths/styles/app_styles.dart';
 
+/// Contiene el Widget de las etapas de la caminata
+/// los globos de los números, la linea vertical de trazado,
+/// los nombres de las localizaciones y los tiempos estimados,
+/// junto con las distancias de recorido en kilometros y metros.
 class WidgetStages extends StatelessWidget {
   const WidgetStages({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Simulamos los datos basados en tu imagen
+    /// Simplificamos almacenando los datos basados de la imagen
     final List<Waypoint> waypoints = Texts.waypoint;
 
     return Padding(
@@ -19,9 +23,9 @@ class WidgetStages extends StatelessWidget {
           Text(
             Texts.stagesTitle,
             style: AppStyles.sectTitle,
-          ),
+          ), // Título de la sección 
 
-          AppStyles.sectionSeparator,
+          AppStyles.sectionSeparator, // separador
           
           ListView.builder(
             padding: EdgeInsets.zero, 

@@ -5,6 +5,8 @@ void main() {
   runApp(const PathsApp());
 }
 
+/// Widget principal de al app contiene la configuración de 
+/// texto global
 class PathsApp extends StatelessWidget {
   const PathsApp({super.key});
 
@@ -13,13 +15,13 @@ class PathsApp extends StatelessWidget {
 
     return MaterialApp(
       title: 'Paths App',
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false, // elimina la franja diagonal de debug
       theme: ThemeData(
         fontFamily: 'Lexend',
         useMaterial3: true, 
       ),
       // pantalla principal
-      home: const WidgetLayout(), 
+      home: const WidgetLayout(), // Widget de contenido de todos los segmentos de la pantalla inicial
     );
   }
 }

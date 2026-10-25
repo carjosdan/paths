@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:paths/data/texts.dart';
 import 'package:paths/styles/images.dart';
 import 'package:paths/styles/app_styles.dart';
 
@@ -8,47 +9,68 @@ class WidgetPictures extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final int total = Images.pictures.length;
+    final int total = Images.galery.length;
     
     return Padding(
       padding: AppStyles.symmPadd168,
-      child: Wrap(
-        alignment: .spaceBetween,
-        runSpacing: 8.0,
-        children:_buildContainer(total),
+      child: Column(
+        children: [
+          SizedBox(
+            width: .infinity,
+            height: 60.0,
+            child: Row(
+              mainAxisAlignment: .spaceBetween,
+              children: [
+                
+                Text(
+                  Texts.phoTitle,
+                  style: AppStyles.sectTitle,
+                ), // Titulo de fotos
+                Text(
+                  Texts.phoSubTitle,
+                  style: AppStyles.textBoldGreen,
+                ), // Subtitulo derecho
+              ],
+            ), // Contiene la fila de los dos textos
+          ), // expande la Row al margen máximo de la Columna principal
+          SizedBox(
+            width: .infinity,
+            child: Wrap(
+              alignment: .spaceBetween,
+              runSpacing: 8.0,
+              children:_buildContainer(total),
+            ), // Distribuye todos los elementos del contenedor espaciados verticalmente 8.0
+          ), // Expande el Wrap al margen máximo interno de la Columna principal
+        ],
       ),
-    );
+    ); // genera el padding del marco más exterior de los dibujos
   }
 
   List<Widget> _buildContainer(int total){
-    if (total <= 0) return []; //asegura que total nunca es menor que cero.
-
-    final newContainer = Stack(
-      children: [
-        ClipRRect(
-          borderRadius: .circular(16.0),
-          child: Images.pictures[total - 1],
-        ),
-        if (total - 1 == 0) // si el elemento es el último pinta la sombra 
-          Positioned.fill(
-            child: Container(
-              decoration: AppStyles.shadowBox,
+    return [
+      for (int index = 0; index < total; index++)
+        Stack(
+          children: [
+            ClipRRect(
+              borderRadius: .circular(16.0),
+              //child: Images.pictures[index],
+              child: Images.galery[index].picture,
             ),
-          ),
-        if (total - 1 == 0) // si el elemento es el último pinta el número
-          Positioned(
-            left: 35,
-            top: 45,
-            child: Text(
-              '+22',
-            style: AppStyles.bigTitle,
-          ),
-          ),
-      ],
-    ); // crea marco con bordes redondos
-
-    final currentList = <Widget>[newContainer];
-
-    return currentList + _buildContainer(total - 1); // retorna la lista actual de imagenes ordenada
+            //Positioned.fill(
+            //  child: Text('$index', style: AppStyles.textBold,), 
+            //), // prueba de indice
+            if(Images.galery[index].isLastPicture)...[
+              Positioned.fill(
+                child: Container( decoration: AppStyles.shadowBox,),
+              ), // Sombra de última posición
+              Positioned(
+                left: 35,
+                top: 45,
+                child: Text('+22', style: AppStyles.bigTitle,)
+              ), // numeración de última posición
+            ],
+          ],
+        )
+    ];
   }
 }

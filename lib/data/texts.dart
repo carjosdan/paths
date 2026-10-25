@@ -37,6 +37,7 @@ class Texts {
   ];
 
   // section footer
-  static final navTitle = 'Baños de Trozos';
-  static final navSubTitle = 'Punto de partida'; 
+  static final footerTitle = 'Baños de Trozos';
+  static final footerSubTitle = 'Punto de partida'; 
+  static final footerButton = 'Comenzar';
 }

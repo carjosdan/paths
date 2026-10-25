@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:paths/styles/images.dart';
 import 'package:paths/styles/app_styles.dart';
 
+/// Widget correspondiente a la cabecera del layer
+/// principal, imagen inicial, titulo y likes
 class WidgetHeader extends StatelessWidget {
   const WidgetHeader({super.key});
 
@@ -13,7 +15,6 @@ class WidgetHeader extends StatelessWidget {
       height: 320, // ajuste de altura vertical
       child: Stack(
         children: [
-          
           // imagen de fondo.
           Positioned.fill( child: Images.header),
           
@@ -43,9 +44,9 @@ class WidgetHeader extends StatelessWidget {
                   ),
                 ),
 
-                AppStyles.smallSeparator,
+                AppStyles.smallSeparator,// separador
 
-                // Título
+                // Título de la cabecera
                 Text(
                   Texts.ppalTitle,
                   style: AppStyles.bigTitle,
@@ -58,20 +59,20 @@ class WidgetHeader extends StatelessWidget {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Images.star,
+                    Images.star, //estrella
 
-                    AppStyles.tinySeparator,
+                    AppStyles.tinySeparator, 
 
                     Text(
                       Texts.number,
                       style: AppStyles.textCard,
-                    ),
+                    ),// puntuación
 
                     AppStyles.tinySeparator,
                     Text(
                       Texts.opinions,
                       style: AppStyles.textBody,
-                    ),
+                    ),//número de opiniones
                   ],
                 ),
               ],

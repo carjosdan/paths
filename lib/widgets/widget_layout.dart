@@ -13,7 +13,8 @@ class WidgetLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      extendBodyBehindAppBar: true,  //por defecto es false, lo que lo hace un menú solido.
+      extendBodyBehindAppBar: true,  // Por defecto es false, lo que hace un menú fijo superior solido.
+                                      // En true provoca la transparencial del fondo del menú.
 
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60.0),
@@ -24,7 +25,7 @@ class WidgetLayout extends StatelessWidget {
             child: WidgetTop(), // menú flotante sobre el contenido
           ),
         ),
-      ),
+      ), // Barra fija superior.
 
       body: const TrailDetailScreen(),
 
